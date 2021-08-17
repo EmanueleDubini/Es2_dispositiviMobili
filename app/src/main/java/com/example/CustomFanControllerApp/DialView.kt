@@ -89,18 +89,15 @@ class DialView : View {
         // DISEGNO IL BOTTONE
         if (canvas != null) {
             canvas.drawRect(left, top, right, bottom, mButtonlPaint)
-            canvas.drawText("OFF", 550F, 300F, mTextPaint)
-            canvas.drawText("ON", 1000F, 1000F, mTextPaint)
-        }
+                    }
 
 
-        /**
-        if (canvas != null) {
-            canvas.drawText("OFF", 550F, 300F, mTextPaint)
-        }
-        if (canvas != null) {
+        if (canvas != null && Selection == 1) {
             canvas.drawText("ON", 550F, 300F, mTextPaint)
-        }**/
+        }
+        if (canvas != null&& Selection == 0) {
+            canvas.drawText("OFF", 550F, 300F, mTextPaint)
+        }
 
         /**
         //la prima cosa che disegniamo è il cerchio principale centrato nella posizione h/2 e w/2
