@@ -4,8 +4,11 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
+import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -53,13 +56,14 @@ class DialView : View {
 
         //Selection = 0 //anche se è già stato inizializzato neglia ttributi della classe
 
-        //inizializziamo un Listener che permette di csmbiare la posizione del dial, quindi mdel cerchio
+        //inizializziamo un Listener che permette di csmbiare la posizione del dial, quindi del quadrato
         setOnClickListener() {
 
             //ogni volta che clickiamo sul dial, la rotellina viene eseguito quersto blocco di codice
             Selection = (Selection + 1) % SELECTION_COUNT //quando si arriva all'ultima posizione bisogna tornare alla prima quindi facciamo il modulo del numero totale delle posizioni
 
             //in base alla posizione in cui si trova bisognerà cambiare il colore del dial
+
             if(Selection == 1) { //quindi se è attivo
                 mButtonlPaint.color = mButtonOnColor
             } else{
@@ -74,13 +78,38 @@ class DialView : View {
     override fun onDraw(canvas: Canvas?) { //canvas è la bitmap dove va disegnata la view
         super.onDraw(canvas)
 
+        // Distanza rettangolo dal Canvas
+        val left = 0f
+        val top = 0f
+        val right = 400f // larghezza
+        val bottom = 400f // altezza
+
+        //val bottone = RectF(left, top, right, bottom)
+
+        // DISEGNO IL BOTTONE
+        if (canvas != null) {
+            canvas.drawRect(left, top, right, bottom, mButtonlPaint)
+            canvas.drawText("OFF", 550F, 300F, mTextPaint)
+            canvas.drawText("ON", 1000F, 1000F, mTextPaint)
+        }
+
+
+        /**
+        if (canvas != null) {
+            canvas.drawText("OFF", 550F, 300F, mTextPaint)
+        }
+        if (canvas != null) {
+            canvas.drawText("ON", 550F, 300F, mTextPaint)
+        }**/
+
+        /**
         //la prima cosa che disegniamo è il cerchio principale centrato nella posizione h/2 e w/2
         val mWidth = width.toFloat()
-                val mHeight = height.toFloat()
-                val mRadius = (Math.min(mWidth, mHeight) / 2 * 0.5).toFloat()
+        val mHeight = height.toFloat()
+        val mRadius = (Math.min(mWidth, mHeight) / 2 * 0.5).toFloat()
 
                 if (canvas != null) {
-                    canvas.drawCircle(mWidth / 2, mHeight / 2, mRadius, mButtonlPaint)
+                    canvas.drawCircle(mWidth / 2, mHeight / 2, mRadius, mButtonlPaint) // G mettere i quadrato
                 }
 
                 if (canvas != null) {
@@ -89,6 +118,7 @@ class DialView : View {
                 if (canvas != null) {
                     canvas.drawText("ON", 180F, 1000F, mTextPaint)
                 }
-    }
+        **/
+    }//End_onDraw
 
 }//END_Class
