@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- abbiamo creato una ImageView con un immagine qualsiasi alla quale poi andremo a cambiare il tag trasformandola nella custom view-->
-
-    <com.example.CustomFanControllerApp.DialView
+    <com.example.Button_ON_OFF.DialView
         android:id="@+id/buttonPaintCanvas"
         android:layout_width="300dp"
         android:layout_height="150dp"
@@ -21,6 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

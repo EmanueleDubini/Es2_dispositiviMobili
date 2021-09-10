@@ -1,4 +1,4 @@
-package com.example.CustomFanControllerApp
+package com.example.Button_ON_OFF
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

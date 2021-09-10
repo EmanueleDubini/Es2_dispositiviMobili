@@ -1,4 +1,4 @@
-package com.example.CustomFanControllerApp
+package com.example.Button_ON_OFF
 
 import org.junit.Test
 
